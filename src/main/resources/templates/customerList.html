@@ -24,14 +24,32 @@
   </style>
   
     <script type="text/javascript">
-  	async function deleteCustomer(id) {
-  	  await fetch('http://127.0.0.1:8080/api/v1/customers/' + id, {
-  	    method: 'DELETE',
-  	  })
+  	async function addCustomer() {
+  		var customerInputDto = {
+  			"firstname":document.getElementById("firstname").value,
+  			"lastname":document.getElementById("lastname").value,
+  			"birthdate":document.getElementById("birthdate").value,
+  			"gender":document.getElementById("gender").value
+  		}
+		await fetch('http://127.0.0.1:8080/api/v1/customers', {
+	  		method: 'POST',
+	  	 	headers: {
+	  	    	'Content-Type': 'application/json',
+	  	  	},
+  			body: JSON.stringify(customerInputDto),
+	  	  })
   	  
-  	  location.reload();
-  	  
+		location.reload();
   	}
+  	
+  	async function deleteCustomer(id) {
+    	  await fetch('http://127.0.0.1:8080/api/v1/customers/' + id, {
+    	    method: 'DELETE',
+    	  })
+    	  
+    	  location.reload();
+    	  
+    	}
   </script>
   
   <body>
@@ -62,10 +80,32 @@
 		    <td>
     			<button th:onclick="'deleteCustomer('+${customer.id}+')'">Löschen</button>
     		</td>
-    		
-
-    		<!-- AppUser.getRoles()[x].getRole(); -->
     	</tr>
     </table>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>Customer hinzufügen</h2>
+    
+    <table>
+    	<tr>
+		  	<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Birthdate</th>
+			<th>Gender</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td><input type="text" id="firstname"></td>
+			<td><input type="text" id="lastname"></td>
+			<td><input type="date" id="birthdate"></td>
+			<td><input type="text" id="gender"></td>
+			<td><button onclick="addCustomer()">Hinzufügen</button></td>
+		</tr>
+    </table>
+    
+    
   </body>
 </html>
