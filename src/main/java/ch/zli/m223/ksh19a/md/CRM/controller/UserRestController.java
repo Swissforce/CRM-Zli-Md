@@ -47,17 +47,6 @@ public class UserRestController {
 	
 	@DeleteMapping("/users/{id}")
 	void deleteUser(@PathVariable("id") Long id) {
-		
-		/*
-		List<Customer> customerWithNotesFromUser = customerService.getAllCustomers().stream()
-			.filter(customer -> customer.getNotes().stream()
-					.filter(note -> note.getAppUser().getId() == id)
-					.map(note -> note.changeOwnerToNull())
-					.findAny().isPresent()
-					)
-			.collect(Collectors.toList());
-			*/
-		
 		for (var customers : customerService.getAllCustomers()) {
 			for (var note : customers.getNotes()) {
 				if (note.getAppUser() != null) {
@@ -67,7 +56,6 @@ public class UserRestController {
 				}
 			}
 		}
-			
 		
 		userService.deleteUser(id);
 	}

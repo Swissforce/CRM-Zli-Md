@@ -59,6 +59,7 @@ public class ServerInitializer implements ApplicationRunner {
 		
 		CustomerImpl arbias = new CustomerImpl("Arbias", "Imeri", "ka", a);
 		arbias.addNoteToList(new NoteImpl("Ginger", martin, arbias));
+		arbias.addNoteToList(new NoteImpl("Albaner", martin, arbias));
 		customerRepository.insert(arbias);
 		customerRepository.insert("Yannis", "Lee", "ka^2", m);
 		

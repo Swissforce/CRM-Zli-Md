@@ -23,6 +23,17 @@
 	}
   </style>
   
+    <script type="text/javascript">
+  	async function deleteCustomer(id) {
+  	  await fetch('http://127.0.0.1:8080/api/v1/customers/' + id, {
+  	    method: 'DELETE',
+  	  })
+  	  
+  	  location.reload();
+  	  
+  	}
+  </script>
+  
   <body>
     <h1>Customer List</h1>
     <table>
@@ -33,6 +44,7 @@
     		<th>Birthdate</th>
     		<th>Gender</th>
     		<th>Notes</th>
+    		<th></th>
     	</tr>
     	<tr th:each = "customer : ${customers}">
     		<td th:text = "${customer.id}">customer_id</td>
@@ -47,6 +59,9 @@
    				</tr>
     		</table>
 		    </td>
+		    <td>
+    			<button th:onclick="'deleteCustomer('+${customer.id}+')'">Löschen</button>
+    		</td>
     		
 
     		<!-- AppUser.getRoles()[x].getRole(); -->
