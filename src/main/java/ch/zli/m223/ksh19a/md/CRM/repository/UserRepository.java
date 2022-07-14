@@ -12,7 +12,11 @@ public interface UserRepository extends JpaRepository<AppUserImpl, Long> {
 
 	default AppUser insert(String userName, String password) {
 		AppUserImpl user = new AppUserImpl(userName, password);
-		return save(user); // TODO
+		return save(user);
+	}
+	
+	default AppUser update(AppUser user) {
+		return save((AppUserImpl)user);
 	}
 	
 	Optional<AppUserImpl> findUserByEmail(String userName);	//Spring schwarze Magie

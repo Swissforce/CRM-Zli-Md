@@ -88,7 +88,7 @@ public class CustomerRestController {
 	@PostMapping("/customers/{id}/notes")
 	NoteDto insertNote(@PathVariable("id") Long id, @RequestBody NoteInputDto noteData) {
 		Note note = new NoteImpl(noteData.note, userService.getUser(noteData.appUserId), customerService.getCustomer(id));
-		customerService.insertCustomer(customerService.getCustomer(id).addNoteToList((NoteImpl)note));
+		customerService.update(customerService.getCustomer(id).addNoteToList((NoteImpl)note));
 		
 		//return new NoteDto(note);			//gibt id = null, da id erst bei Datenbank Eintrag generiert wird
 		return new NoteDto(customerService.getCustomer(id).getNotes().get(customerService.getCustomer(id).getNotes().size() - 1));

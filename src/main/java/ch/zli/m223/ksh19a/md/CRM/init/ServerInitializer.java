@@ -36,11 +36,20 @@ public class ServerInitializer implements ApplicationRunner {
 	@Transactional
 	public void run(ApplicationArguments args) throws Exception {
 		//User
+		AppUser martin = userRepository.insert("Martin", "12345");
 		roleRepository.insert(AppRoles.USER, userRepository.insert("Markus", "12345"));
 		
-		AppUser martin = userRepository.insert("Martin", "12345");
+		roleRepository.insert(AppRoles.USER, userRepository.insert("Benutzer 2", "12345"));
+		
+		roleRepository.insert(AppRoles.USER, userRepository.insert("Benutzer 3", "12345"));
+		
+		roleRepository.insert(AppRoles.ADMIN, userRepository.update(martin));
+		
+		
 		roleRepository.insert(AppRoles.ADMIN, martin);
 		roleRepository.insert(AppRoles.USER, martin);
+		
+		roleRepository.insert(AppRoles.USER, userRepository.insert("Benutzer 4", "12345"));
 		
 		//Customer
 		Gender m = genderRepository.insert("Männlich");

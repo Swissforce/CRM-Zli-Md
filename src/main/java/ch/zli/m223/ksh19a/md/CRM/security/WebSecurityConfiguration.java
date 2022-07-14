@@ -51,6 +51,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 				.antMatchers("/user/**").hasAuthority(AppRoles.USER)
 				.antMatchers("/customers/**").hasAuthority(AppRoles.USER)
 				.antMatchers("/logedin").authenticated()
+				//.anyRequest().authenticated()
 			.and()
 				.formLogin().permitAll()
 			.and()

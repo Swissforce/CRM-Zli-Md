@@ -58,6 +58,12 @@ public class NoteImpl implements Note{
 	public AppUser getAppUser() {
 		return appUser;
 	}
+	
+	
+	public Note changeOwnerToNull() {
+		appUser = null;
+		return this;
+	}
 
 
 

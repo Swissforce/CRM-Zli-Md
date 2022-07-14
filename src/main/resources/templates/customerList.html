@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+  	<meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+	
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+  </style>
+  
+  <body>
+    <h1>Customer List</h1>
+    <table>
+    	<tr>
+    		<th>ID</th>
+    		<th>Firstname</th>
+    		<th>Lastname</th>
+    		<th>Birthdate</th>
+    		<th>Gender</th>
+    		<th>Notes</th>
+    	</tr>
+    	<tr th:each = "customer : ${customers}">
+    		<td th:text = "${customer.id}">customer_id</td>
+    		<td th:text = "${customer.firstname}">firstname</td>
+    		<td th:text = "${customer.lastname}">lastname</td>
+    		<td th:text = "${customer.birthdate}">birthdate</td>
+    		<td th:text = "${customer.gender.getGenderName()}">gender</td>
+    		<td>
+    		<table>
+    			<tr th:each = "note : ${customer.notes}">
+    				<td th:text = "${note.note}">note</td>
+   				</tr>
+    		</table>
+		    </td>
+    		
+
+    		<!-- AppUser.getRoles()[x].getRole(); -->
+    	</tr>
+    </table>
+  </body>
+</html>

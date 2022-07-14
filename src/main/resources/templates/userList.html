@@ -3,17 +3,59 @@
   <head>
   	<meta charset="UTF-8">
     <title>Users</title>
+    <link rel="stylesheet" href="style.css">
   </head>
+  <style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+	
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+  </style>
+  
+  <script type="text/javascript">
+  	async function deleteUser(id) {
+  	  await fetch('http://127.0.0.1:8080/api/v1/users/' + id, {
+  	    method: 'DELETE',
+  	  })
+  	  
+  	  location.reload();
+  	  
+  	}
+  </script>
+  
   <body>
     <h1>Application User List</h1>
     <table>
     	<tr>
     		<th>ID</th>
     		<th>Name</th>
+    		<th>Roles</th>
     	</tr>
-    	<tr th:each="user : ${users}">
-    		<td th:text="${user.id}">user_id</td>
-    		<td th:text="${user.name}">user_name</td>
+    	<tr th:each = "user : ${users}">
+    		<td th:text = "${user.id}">user_id</td>
+    		<td th:text = "${user.email}">user_name</td>
+    		<td>
+    		<table>
+    			<tr th:each = "role : ${user.roles}">
+    				<td th:text = "${role.role}">role</td>
+   				</tr>
+    		</table>
+    		<td>
+    		<button th:onclick="'deleteUser('+${user.id}+')'">Löschen</button>
+    		</td>
+    		
+
     		<!-- AppUser.getRoles()[x].getRole(); -->
     	</tr>
     </table>

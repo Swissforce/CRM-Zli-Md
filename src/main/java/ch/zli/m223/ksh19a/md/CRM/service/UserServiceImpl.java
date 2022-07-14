@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
 		}
 		return userRepository.insert(name, password);
 	}
+	
+	
+	public AppUser update(AppUser user) {
+		return userRepository.update(user);
+	}
 
 	@Override
 	public Boolean deleteUser(Long id) {

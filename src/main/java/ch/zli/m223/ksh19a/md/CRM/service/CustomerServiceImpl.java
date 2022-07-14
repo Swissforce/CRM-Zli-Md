@@ -43,7 +43,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	
 	@Override
-	public Customer insertCustomer(Customer customer) {
+	public Customer update(Customer customer) {
 		return customerRepository.insert((CustomerImpl)customer);
 	}
 
