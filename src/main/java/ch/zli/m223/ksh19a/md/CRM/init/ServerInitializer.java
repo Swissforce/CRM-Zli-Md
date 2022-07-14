@@ -43,9 +43,6 @@ public class ServerInitializer implements ApplicationRunner {
 		
 		roleRepository.insert(AppRoles.USER, userRepository.insert("Benutzer 3", "12345"));
 		
-		roleRepository.insert(AppRoles.ADMIN, userRepository.update(martin));
-		
-		
 		roleRepository.insert(AppRoles.ADMIN, martin);
 		roleRepository.insert(AppRoles.USER, martin);
 		

@@ -66,7 +66,9 @@ public class AppUserImpl implements AppUser {
 	
 	
 	public void addRoleToList(RoleImpl newRole) {
-		roles.add(newRole);
+		if (!roles.contains(newRole)) {
+			roles.add(newRole);	
+		}
 	}
 	
 	

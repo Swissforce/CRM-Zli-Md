@@ -28,6 +28,22 @@
   </style>
   
   <script type="text/javascript">
+	async function addUser() {
+  		var appUserInputDto = {
+  			"email":document.getElementById("email").value,
+  			"password":document.getElementById("password").value
+  		}
+		await fetch('http://127.0.0.1:8080/api/v1/users', {
+	  		method: 'POST',
+	  	 	headers: {
+	  	    	'Content-Type': 'application/json',
+	  	  	},
+  			body: JSON.stringify(appUserInputDto),
+	  	  })
+  	  
+		location.reload();
+  	}
+	
   	async function deleteUser(id) {
   	  await fetch('http://127.0.0.1:8080/api/v1/users/' + id, {
   	    method: 'DELETE',
@@ -63,6 +79,25 @@
 
     		<!-- AppUser.getRoles()[x].getRole(); -->
     	</tr>
+    </table>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>User hinzufügen</h2>
+    
+    <table>
+    	<tr>
+		  	<th>Email</th>
+			<th>Password</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td><input type="email" id="email"></td>
+			<td><input type="text" id="password"></td>
+			<td><button onclick="addUser()">Hinzufügen</button></td>
+		</tr>
     </table>
   </body>
 </html>
