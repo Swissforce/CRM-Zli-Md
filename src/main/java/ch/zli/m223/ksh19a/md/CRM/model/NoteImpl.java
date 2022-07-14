@@ -30,11 +30,11 @@ public class NoteImpl implements Note{
 	}
 	
 	
-	public NoteImpl(String note, AppUser appUser, CustomerImpl customer) {
+	public NoteImpl(String note, AppUser appUser, Customer customer) {
 		this();
 		this.note = note;
 		this.appUser = (AppUserImpl)appUser;
-		this.customer = customer;
+		this.customer = (CustomerImpl)customer;
 	}
 	
 

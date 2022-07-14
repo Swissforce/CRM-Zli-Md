@@ -47,7 +47,7 @@ public class UserRestController {
 	}
 	
 	@GetMapping("/users/{id}/roles")
-	List<RoleDto> gtRolesForUser(@PathVariable("id") Long id){
+	List<RoleDto> getRolesForUser(@PathVariable("id") Long id){
 		var user = userService.getUser(id);
 		return user.getRoles().stream()
 			.map(role -> new RoleDto(role))

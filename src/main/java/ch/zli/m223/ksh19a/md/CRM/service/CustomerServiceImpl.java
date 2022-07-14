@@ -9,6 +9,7 @@ import org.thymeleaf.util.Validate;
 
 import ch.zli.m223.ksh19a.md.CRM.exception.NotFoundException;
 import ch.zli.m223.ksh19a.md.CRM.model.Customer;
+import ch.zli.m223.ksh19a.md.CRM.model.CustomerImpl;
 import ch.zli.m223.ksh19a.md.CRM.model.Gender;
 import ch.zli.m223.ksh19a.md.CRM.repository.CustomerRepository;
 
@@ -40,6 +41,11 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return customerRepository.insert(firstname, lastname, birthdate, gender);
 	}
+	
+	@Override
+	public Customer insertCustomer(Customer customer) {
+		return customerRepository.insert((CustomerImpl)customer);
+	}
 
 	@Override
 	public Boolean deleteCustomer(Long id) {
@@ -49,5 +55,6 @@ public class CustomerServiceImpl implements CustomerService {
 		customerRepository.deleteById(id);
 		return true;
 	}
+
 
 }

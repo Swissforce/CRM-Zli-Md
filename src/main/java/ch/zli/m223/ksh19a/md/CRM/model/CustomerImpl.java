@@ -78,7 +78,9 @@ public class CustomerImpl implements Customer {
 
 	@Override
 	public CustomerImpl addNoteToList(NoteImpl note) {
-		notes.add(note);
+		if (!notes.contains(note)) {
+			notes.add(note);
+		}
 		return this;
 	}
 

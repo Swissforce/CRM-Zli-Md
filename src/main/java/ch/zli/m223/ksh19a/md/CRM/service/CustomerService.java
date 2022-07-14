@@ -12,5 +12,7 @@ public interface CustomerService {
 	
 	Customer insertCustomer(String firstname, String lastname, String birthdate, Gender gender);
 	
+	Customer insertCustomer(Customer customer);
+	
 	Boolean deleteCustomer(Long id);
 }
