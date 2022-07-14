@@ -11,6 +11,10 @@ public interface CustomerRepository extends JpaRepository<CustomerImpl, Long>{
 		return save(new CustomerImpl(firstname, lastname, birthdate, gender));
 	}
 	
+	default Customer insert(CustomerImpl customer) {
+		return save(customer);
+	}
+	
 	
 
 }

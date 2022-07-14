@@ -9,5 +9,5 @@ public interface Customer {
 	public String getBirthdate();
 	public Gender getGender();
 	public List<NoteImpl> getNotes();
-	public void addNoteToList(NoteImpl note);
+	public CustomerImpl addNoteToList(NoteImpl note);
 }

@@ -77,8 +77,9 @@ public class CustomerImpl implements Customer {
 
 
 	@Override
-	public void addNoteToList(NoteImpl note) {
+	public CustomerImpl addNoteToList(NoteImpl note) {
 		notes.add(note);
+		return this;
 	}
 
 

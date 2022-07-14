@@ -16,8 +16,8 @@ public class NoteImpl implements Note{
 	private String note;
 	private long timestamp;
 	
-	//@ManyToOne
-	private AppUser appUser;
+	@ManyToOne
+	private AppUserImpl appUser;
 	
 	@ManyToOne
 	private CustomerImpl customer;
@@ -33,7 +33,7 @@ public class NoteImpl implements Note{
 	public NoteImpl(String note, AppUser appUser, CustomerImpl customer) {
 		this();
 		this.note = note;
-		this.appUser = appUser;
+		this.appUser = (AppUserImpl)appUser;
 		this.customer = customer;
 	}
 	
