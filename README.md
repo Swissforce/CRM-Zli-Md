@@ -1,5 +1,5 @@
 # CRM-Zli-Md
-##Custom CRM Sofware  --- school project
+## Custom CRM Sofware  --- school project
 allows users to manage customers and add notes to them
 
 ### How to start?
