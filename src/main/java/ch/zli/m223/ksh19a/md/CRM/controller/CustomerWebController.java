@@ -1,4 +1,4 @@
-package ch.zli.m223.ksh19a.md.CRM;
+package ch.zli.m223.ksh19a.md.CRM.controller;
 
 import java.util.List;
 
