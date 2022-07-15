@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import ch.zli.m223.ksh19a.md.CRM.model.Customer;
 import ch.zli.m223.ksh19a.md.CRM.service.CustomerService;
@@ -16,6 +17,7 @@ import ch.zli.m223.ksh19a.md.CRM.service.CustomerService;
  *
  */
 @Controller
+@RequestMapping("customer")
 public class CustomerWebController {
 	
 	@Autowired

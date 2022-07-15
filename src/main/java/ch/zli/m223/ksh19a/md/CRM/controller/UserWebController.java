@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import ch.zli.m223.ksh19a.md.CRM.model.AppUser;
 import ch.zli.m223.ksh19a.md.CRM.service.UserService;
@@ -16,6 +16,7 @@ import ch.zli.m223.ksh19a.md.CRM.service.UserService;
  *
  */
 @Controller
+@RequestMapping("user")
 public class UserWebController {
 
 	@Autowired
@@ -45,11 +46,6 @@ public class UserWebController {
 		return "loged_in_page";
 	}
 	
-	@GetMapping("/userdelete/{id}")
-	String userDelete(@PathVariable("id") Long id) {
-		userService.deleteUser(id);
-		return "userList";
-	}
 	
 }
 
