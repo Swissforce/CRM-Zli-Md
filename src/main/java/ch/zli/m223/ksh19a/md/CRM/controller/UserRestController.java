@@ -17,7 +17,11 @@ import ch.zli.m223.ksh19a.md.CRM.controller.dto.UserDto;
 import ch.zli.m223.ksh19a.md.CRM.controller.dto.UserInputDto;
 import ch.zli.m223.ksh19a.md.CRM.service.CustomerService;
 import ch.zli.m223.ksh19a.md.CRM.service.UserService;
-
+/**
+ * Rest controller for the user
+ * @author mardpp1
+ *
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class UserRestController {

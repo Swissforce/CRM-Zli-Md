@@ -12,7 +12,11 @@ import ch.zli.m223.ksh19a.md.CRM.model.AppUser;
 import ch.zli.m223.ksh19a.md.CRM.model.Customer;
 import ch.zli.m223.ksh19a.md.CRM.service.CustomerService;
 import ch.zli.m223.ksh19a.md.CRM.service.UserService;
-
+/**
+ * Webcontroller for the user
+ * @author mardpp1
+ *
+ */
 @Controller
 public class UserWebController {
 

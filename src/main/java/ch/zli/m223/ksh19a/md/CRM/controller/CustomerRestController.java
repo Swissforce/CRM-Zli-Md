@@ -26,7 +26,11 @@ import ch.zli.m223.ksh19a.md.CRM.model.NoteImpl;
 import ch.zli.m223.ksh19a.md.CRM.repository.GenderRepository;
 import ch.zli.m223.ksh19a.md.CRM.service.CustomerService;
 import ch.zli.m223.ksh19a.md.CRM.service.UserService;
-
+/**
+ * Rest controller for the customer
+ * @author mardpp1
+ *
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class CustomerRestController {

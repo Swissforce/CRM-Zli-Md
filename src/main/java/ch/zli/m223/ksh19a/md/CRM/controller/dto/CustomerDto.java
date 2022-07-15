@@ -5,6 +5,11 @@ import java.util.List;
 
 import ch.zli.m223.ksh19a.md.CRM.model.Customer;
 
+/**
+ * Stripped Customer for displaying purposes
+ * @author mardpp1
+ *
+ */
 public class CustomerDto {
 	public final Long id;
 	public final String firstname;
@@ -13,6 +18,10 @@ public class CustomerDto {
 	public final String gender;
 	public List<NoteDto> noteList;
 	
+	/**
+	 * Constructor
+	 * @param customer
+	 */
 	public CustomerDto(Customer customer) {
 		this.id = customer.getId();
 		this.firstname = customer.getFirstname();

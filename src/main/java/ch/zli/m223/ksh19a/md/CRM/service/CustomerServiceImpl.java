@@ -13,13 +13,18 @@ import ch.zli.m223.ksh19a.md.CRM.model.CustomerImpl;
 import ch.zli.m223.ksh19a.md.CRM.model.Gender;
 import ch.zli.m223.ksh19a.md.CRM.repository.CustomerRepository;
 
+/**
+ * Implementation of CustomerService
+ * @author mardpp1
+ *
+ */
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
-	
 
+	
 	@Override
 	public List<Customer> getAllCustomers() {
 		return new ArrayList<Customer>(customerRepository.findAll());
@@ -32,6 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 		});
 	}
 
+
 	@Override
 	public Customer insertCustomer(String firstname, String lastname, String birthdate, Gender gender) {
 		Validate.notNull(firstname, "Firstname must not be null");
@@ -42,11 +48,13 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerRepository.insert(firstname, lastname, birthdate, gender);
 	}
 	
+
 	@Override
 	public Customer update(Customer customer) {
 		return customerRepository.insert((CustomerImpl)customer);
 	}
 
+	
 	@Override
 	public Boolean deleteCustomer(Long id) {
 		if (customerRepository.findById(id).isEmpty()) {
