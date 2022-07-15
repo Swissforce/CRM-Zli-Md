@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import ch.zli.m223.ksh19a.md.CRM.model.AppUser;
-import ch.zli.m223.ksh19a.md.CRM.model.Customer;
-import ch.zli.m223.ksh19a.md.CRM.service.CustomerService;
 import ch.zli.m223.ksh19a.md.CRM.service.UserService;
 /**
  * Webcontroller for the user
@@ -23,8 +21,6 @@ public class UserWebController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private CustomerService customerService;
 
 	@GetMapping("/userlist")
 	String getUserList(Model model) {
@@ -32,14 +28,7 @@ public class UserWebController {
 		model.addAttribute("users", userList);
 		return "userList"; // templates/userList.html
 	}
-	
-	@GetMapping("/customerlist")
-	String getCustomerList(Model model) {
-		List<Customer> customerList = customerService.getAllCustomers();
-		model.addAttribute("customers", customerList);
-		return "customerList";
-	}
-	
+
 	
 	@GetMapping("/admin")
 	String gotoAdminPage() {
