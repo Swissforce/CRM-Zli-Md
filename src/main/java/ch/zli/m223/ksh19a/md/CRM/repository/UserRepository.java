@@ -8,7 +8,6 @@ import ch.zli.m223.ksh19a.md.CRM.model.AppUser;
 import ch.zli.m223.ksh19a.md.CRM.model.AppUserImpl;
 
 public interface UserRepository extends JpaRepository<AppUserImpl, Long> {
-	// public List<AppUser> findAll();
 
 	default AppUser insert(String userName, String password) {
 		AppUserImpl user = new AppUserImpl(userName, password);
